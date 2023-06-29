@@ -1,9 +1,14 @@
 {
   "expo": {
+    "experiments": {
+      "tsconfigPaths": true,
+      "typedRoutes": true
+    },
     "name": "cobain-expo-ts",
     "slug": "cobain-expo-ts",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "myapp",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

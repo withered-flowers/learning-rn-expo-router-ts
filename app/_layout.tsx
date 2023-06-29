@@ -1,20 +1,21 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text } from "react-native";
+import { Slot } from "expo-router";
+import { StyleSheet } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { PaperProvider } from "react-native-paper";
 
-export default function App() {
+const BaseLayout = () => {
   return (
     <PaperProvider>
       <SafeAreaProvider>
         <SafeAreaView style={styles.container}>
-          <Text>Buka App.tsx yuk</Text>
+          <Slot />
           <StatusBar style="auto" />
         </SafeAreaView>
       </SafeAreaProvider>
     </PaperProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -24,3 +25,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default BaseLayout;
