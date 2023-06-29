@@ -1,29 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { Slot } from "expo-router";
-import { StyleSheet } from "react-native";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { Stack } from "expo-router";
+
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { PaperProvider } from "react-native-paper";
 
 const BaseLayout = () => {
   return (
     <PaperProvider>
       <SafeAreaProvider>
-        <SafeAreaView style={styles.container}>
-          <Slot />
-          <StatusBar style="auto" />
-        </SafeAreaView>
+        <Stack initialRouteName="home">
+          {/* WARNING: Stack.Screen can be configured dynamic on it's on page */}
+          {/* Here, we are using the static way */}
+          {/* File name: app/index.tsx -> name: index */}
+          <Stack.Screen name="index" options={{ title: "First Screen" }} />
+          {/* File name: app/home/index.tsx  -> name: home/index */}
+          <Stack.Screen name="home/index" options={{ title: "Home Screen" }} />
+        </Stack>
       </SafeAreaProvider>
     </PaperProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default BaseLayout;

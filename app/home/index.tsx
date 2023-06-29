@@ -1,17 +1,27 @@
-import { useRouter } from "expo-router";
+import { useRouter, Stack } from "expo-router";
 import { Button, Text } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const Home = () => {
+import { styles } from "../../styles/custom";
+
+const HomeScreen = (props: any) => {
+  console.log("app/home/index", props);
+
   const router = useRouter();
 
   return (
     <>
-      <Text>Ini adalah halaman Home</Text>
-      <Button mode="outlined" onPress={() => router.back()}>
-        Go back
-      </Button>
+      <SafeAreaView style={styles.container}>
+        {/* Override Stack.Screen options from _layout.tsx, cannot declare "name" */}
+        <Stack.Screen options={{ title: "Override Home Screen" }} />
+
+        <Text variant="bodyLarge">This is Home Screen</Text>
+        <Button icon="backburger" mode="outlined" onPress={() => router.back()}>
+          Go back
+        </Button>
+      </SafeAreaView>
     </>
   );
 };
 
-export default Home;
+export default HomeScreen;
